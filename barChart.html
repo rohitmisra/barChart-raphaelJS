@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="scripts/raphael.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/barChart.js"></script>
+
+    <script type="text/javascript">
+        function doOnLoad0(){
+            var chart = new barChart({
+                canvasWidth: 1400,
+                canvasHeight: 1400,
+                width: 0,
+                target: 'map',
+                height: 20,
+                data: {
+                    arr1: [700,344,23,124,21]
+                }
+            });
+        }
+        function doOnLoad(){
+            // Setup the paper
+            var width = 1400;
+            var height = 1400;
+            var svgEl = document.getElementById('map');
+
+            var paper = Raphael( svgEl, width, height );
+
+
+
+
+
+            // Draw a rectangle with rounded corners
+            var x = 50; // left
+            var y = 50; // top
+
+            //the axis
+            var axis = paper.rect( x, 10, 1, 800, 0 );
+            axis.attr({
+                stroke : 'rgba(0,0,255,0.5)',
+                'stroke-width' : 1
+            });
+
+
+            var width = 700;
+            var height = 20;
+            var radius = 1;
+
+            var rect = paper.rect( x, y, 0, height, radius );
+
+            rect.attr({
+                stroke: 'rgba(0,0,255,0.5)',
+                'stroke-width': 1,
+                fill: 'rgba('+900/5+',150,255,0.5)'
+            });
+
+            (function(y) {
+                //var animate = Raphael.animation({width: 700}, 200, "backOut")
+                rect.animate({width: width}, 900, ">", function () {
+                    console.log(y);
+                    paper.text(x + width + 15, y + 10, width);
+                });
+            })(y);
+
+            y = y+40;
+            var rect2 = paper.rect( x, y, 0, height, radius );
+
+            rect2.attr({
+                stroke: 'rgba(0,0,255,0.5)',
+                'stroke-width': 1,
+                fill: 'rgba('+600/5+',150,255,0.5)'
+            });
+
+            //var animate = Raphael.animation({width: 700}, 200, "backOut")
+            rect2.animate({width: 600}, 900, ">",function(){
+
+            });
+        }
+
+
+
+    </script>
+
+
+
+
+
+</head>
+<body onload="doOnLoad0()">
+
+<div id="map">
+
+</div>
+
+</body>
+</html>
