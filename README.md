@@ -21,7 +21,7 @@ cd barChart-raphaelJS
 npm install
 
 
-##### for an illustration:
+#for an illustration:
 
 grunt connect:example
 
