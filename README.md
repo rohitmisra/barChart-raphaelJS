@@ -26,6 +26,8 @@ npm install
 grunt connect:example
 
 ```
+Now the example page can be accessed via http://localhost:9001/barChart.html
+
 
 Usage
 -----
