@@ -7,7 +7,7 @@ A simple barchart library using RaphaelJS
   - Multi color support
   - Landscape/portrait mode
   - Easy configuration
-  - 
+  - Support for IE 6+
 
 
 
