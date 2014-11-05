@@ -52,7 +52,7 @@ var chart = new barChart({
 
 ```
 
-
+Watch a live demo [here](http://rohitmisra.de/barChart.html)
 
 License
 ----
