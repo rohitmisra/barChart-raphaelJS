@@ -1,0 +1,10 @@
+{
+	"name": "barChart-raphaelJS",
+	"version": "0.0.0",
+	"dependencies":{
+		"grunt": "~0.4.2",
+		"grunt-connect": "^0.2.0"
+	},
+	"private": true
+
+}
