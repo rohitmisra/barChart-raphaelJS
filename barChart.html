@@ -6,19 +6,24 @@
     <script type="text/javascript" src="scripts/raphael.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/barChart.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.css">
+    <script type="text/javascript" src="//cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script>
     <script type="text/javascript">
+        var chart;
         function doOnLoad0(){
-            var chart = new barChart({
+            if(chart) chart.clearFunc();
+            chart = new barChart({
                 canvasWidth: 1400,
                 canvasHeight: 600,
                 width: 0,
                 target: 'map',
                 height: 20,
                 data: {
-                    arr1: [400,344,23,124,1,2,10,12,324]
+                    arr1: [100,344,23,124,1,2,10,120,324],
+                    arr2: [134,223,14,110,1,2,10,12,323]
                 },
-                alignment: 'portrait'
+                alignment: $('input[name="alignment"]:checked').val()
             });
         }
 
@@ -27,16 +32,43 @@
 
     </script>
 
+<style type="text/css">
+    #tip{
+        position : absolute;
+        border : 1px solid gray;
+        background-color : #efefef;
+        padding : 3px;
+        z-index: 1000;
+        /* set this to create word wrap */
+        max-width: 200px;
+    }
 
+    div.container{
+        width: 60%;
+        height: 900px;
+        border : 1px solid gray;
+
+    }
+    div.leftBox{
+        width: 30%;
+        border : 1px solid gray;
+        float: right;
+    }
+</style>
 
 
 
 </head>
 <body onload="doOnLoad0()">
-
-<div id="map">
+<div id="tip"></div>
+<div class="container" id="map">
 
 </div>
+<div id="controller" class="leftBox">
 
+    <input type="radio" name="alignment" onchange="doOnLoad0();" checked="checked" value="portrait" /> Portrait
+    <input type="radio" name="alignment" onchange="doOnLoad0();" value="Landscape" /> Landscape
+
+</div>
 </body>
 </html>
