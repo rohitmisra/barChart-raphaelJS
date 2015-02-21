@@ -4,6 +4,9 @@ barChart-raphaelJS
 A simple barchart library using RaphaelJS
 
   - Create simple barcharts
+  - Comparable view
+  - Landscape or portrait modes
+  - Tooltip for value on hover
   - Multi color support
   - Landscape/portrait mode
   - Easy configuration
@@ -34,15 +37,16 @@ Usage
 
 ```
 var chart = new barChart({
-                canvasWidth: 1400,
+                canvasWidth: 1000,
                 canvasHeight: 600,
                 width: 0,
                 target: 'graph',
                 height: 20,
                 data: {
                     arr1: [400,344,23,124,1,2,10,12,324]
+                    arr2: [134,223,14,110,1,2,10,12,323]
                 },
-                alignment: 'portrait'
+                alignment: $('input[name="alignment"]:checked').val() //Pickup from Radio button
             });
 
 
